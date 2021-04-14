@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Chapstick24/Employee-Tracker-no-one-gets-away#readme",
   "dependencies": {
     "console.table": "^0.10.0",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "inquirer": "^8.0.0",
     "mysql": "^2.18.1"
