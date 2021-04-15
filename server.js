@@ -10,12 +10,15 @@ const connection = mysql.createConnection({
 
     user: 'root',
 
-    password:'',
+    password:'Rooster1',
     database:"employee_db",
 });
 
 connection.connect((err) =>{
 if (err) throw err;
+console.log("-----------------------")
+console.log("Welcome to Scranton " )
+console.log("-----------------------\n") 
 getEmployee()
 });
 
@@ -31,9 +34,11 @@ const getEmployee = () => {
         'View Department List',
         'Add Roles',
         'View all Roles',
-        'Destroy Employee'
+        'Destroy Employee',
+        "View Employee by Manager"
     ]
 
 
-})}
+})};
+
 
