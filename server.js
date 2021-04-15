@@ -4,41 +4,51 @@ const consoleTable = require("console.table");
 require('dotenv').config()
 
 const connection = mysql.createConnection({
-    host:'localhost',
+    host: 'localhost',
 
     port: 3306,
 
     user: 'root',
 
-    password:'',
-    database:"employee_db",
+    password: '',
+    database: "employee_db",
 });
 
-connection.connect((err) =>{
-if (err) throw err;
-console.log("-----------------------")
-console.log("Welcome to Scranton " )
-console.log("-----------------------\n") 
-getEmployee()
+connection.connect((err) => {
+    if (err) throw err;
+    console.log("-----------------------")
+    console.log("Welcome to Scranton ")
+    console.log("-----------------------\n")
+    getEmployee()
 });
 
 const getEmployee = () => {
     inquirer.prompt({
-    name: "action",
-    type: "rawlist",
-    message: "what are you wanting to do",
-    choices: [
-        'Add Employee',
-        'View Employee List',
-        'Add Department',
-        'View Department List',
-        'Add Roles',
-        'View all Roles',
-        'Destroy Employee',
-        "View Employee by Manager"
-    ]
+        name: "action",
+        type: "rawlist",
+        message: "what are you wanting to do",
+        choices: [
+            'Add Employee',
+            'View Employee List',
+            'Add Department',
+            'View Department List',
+            'Add Roles',
+            'View all Roles',
+            'Destroy Employee',
+            "View Employee by Manager"
+        ],
 
 
-})};
+    })
+        .then((answer) => {
+            switch (answer.action) {
+                case 'Add Employee':
+                    addEmployee();
+                    break;
 
+                case 'View Employee List':
+                    viewEmployee()
+            }
+        })
+}
 
