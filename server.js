@@ -44,7 +44,7 @@ const getEmployee = async() => {
         message: "what are you wanting to do",
         choices: [
             'Add Employee',
-            'View all Employees my Manager',
+            'View all Employees with Manager',
             'Add Department',
             'View Department List',
             'Add Roles',
@@ -61,7 +61,7 @@ const getEmployee = async() => {
                     addEmployee();
                     break;
 
-                case 'View all Employees my Manager':
+                case 'View all Employees with Manager':
                     viewEmployee()
                     break;
 
@@ -100,3 +100,39 @@ viewEmployee = () => {
     getEmployee()
     });
   };
+
+  viewDepartment = () => {
+    connection.query("SELECT * FROM department", (err, res) => {
+      if (err) throw err;
+      console.table(res);
+      getEmployee();
+    });
+  };
+  addDepartment = () => {
+    inquirer.prompt([
+      {
+        name: "department",
+        type: "input",
+        message: " new department?"
+      }
+    ]).then(function(answerDept) {
+      connection.query(`INSERT INTO department (name) VALUES ('${answerDept.department}')`, (err, res) => {
+        if (err) throw err;
+        viewDepartment();
+        getEmployee();
+      }) 
+    })
+  };
+
+  viewRole = () => {
+      connection.query("SELECT * FROM employee_db.roles;", (err, res) => {
+          if (err) throw err;
+          console.table(res);
+          getEmployee();
+
+      })
+  }
+
+addEmployee = () => {
+    
+} 
