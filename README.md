@@ -2,7 +2,7 @@
 
 # Links
 * [GithubRepo](https://github.com/Chapstick24/Employee-Tracker-no-one-gets-away)
-* [Link to how this app works]()
+* [Link to this app in action](chrome-extension://mmeijimgabbpbgpdklnllpncmdofkcpn/ng/app/app.html#/files/ebfd4a67-69d0-4ca2-y9f9-c2f435c7a6d3)
 
 ## Checklist
 
