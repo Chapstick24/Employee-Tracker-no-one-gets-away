@@ -1,5 +1,7 @@
 # Employee-Tracker-no-one-gets-away
 
+[GithubRepo] https://github.com/Chapstick24/Employee-Tracker-no-one-gets-away
+
 ## Checklist
 
 * create/ build folder and files, as such schema, seeds, server. 
@@ -42,3 +44,7 @@
   * Delete departments, roles, and employees
 
   * View the total utilized budget of a department -- ie the combined salaries of all employees in that department
+
+
+  # Screen Shots
+  ![image] Assets/Screen Shot 2021-04-17 at 7.56.50 PM.png
