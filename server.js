@@ -21,7 +21,7 @@ const init = async () => {
 
 
     });
-    console.log("something in here")
+    // console.log("something in here")
     await displayFig()
 
 
@@ -54,8 +54,7 @@ const getEmployee = async () => {
             'View Department List',
             'Add Roles',
             'View all Roles',
-            'Destroy Employee',
-            'View Employee by Manager'
+            'fire Employee',
         ],
 
 
@@ -86,13 +85,10 @@ const getEmployee = async () => {
                     viewRole();
                     break;
 
-                case 'Destroy Employee':
+                case 'fire Employee':
                     deleteEmployee();
                     break;
 
-                case 'View Employee by Manager':
-                    viewByManager()
-                    break;
 
             }
         })
@@ -163,8 +159,8 @@ addEmployee = () => {
     },
     {
         name: "id",
-        type:"input",
-        message: "what is your 2 digit id number?", 
+        type: "input",
+        message: "what is your 2 digit id number?",
     },
     {
         name: "manager_id",
@@ -174,16 +170,55 @@ addEmployee = () => {
 
     }
     ])
-    .then(function(answerEmpl) {
-        connection.query(`INSERT INTO employee (id, first_name, last_name, role_id, manager_id) VALUES("${answerEmpl.id}", "${answerEmpl.first_name}", "${answerEmpl.last_name}", "${answerEmpl.role_id}", "${answerEmpl.manager_id}")` ,(err,res)=>{
-            if (err) throw err;
-            console.log("added employee")
-            viewEmployee()
-        } 
-        )
-    })
+        .then(function (answerEmpl) {
+            connection.query(`INSERT INTO employee (id, first_name, last_name, role_id, manager_id) VALUES("${answerEmpl.id}", "${answerEmpl.first_name}", "${answerEmpl.last_name}", "${answerEmpl.role_id}", "${answerEmpl.manager_id}")`, (err, res) => {
+                if (err) throw err;
+                console.log("added employee")
+                viewEmployee()
+            }
+            )
+        })
 
 
 }
+addRoles = () => {
+    inquirer.prompt([{
+
+        name: "title",
+        type: "input",
+        message: "What is the title of this new role",
+    },
+    {
+
+        name: "salary",
+        type: "input",
+        message: "whats the new yearly salary",
+    }, {
+
+        name: "department_id",
+        type: "input",
+        message: "what 2 digit number would you like to give this role"
+
+
+    }])
+        .then(function (answerRole) {
+            connection.query(`INSERT INTO roles (title, salary, department_id) VALUES("${answerRole.title}", "${answerRole.salary}", "${answerRole.department_id}")`, (err, res) => {
+                if (err) throw err;
+                console.log("added role")
+                viewRole()
+            })
+        })
+};
+deleteEmployee = () => {
+    inquirer.prompt([{
+        name: "id",
+        type: "input",
+        message: "select employee that you would like to fire by entering in there id?",
+    }])
+        .then(function(answerDele)  {
+        connection.query(`DELETE FROM employee WHERE id = "${answerDele.id}"`)
+        viewEmployee()
+    })
+};
 
 init()
