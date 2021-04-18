@@ -12,7 +12,7 @@ const connection = mysql.createConnection({
 
     user: 'root',
 
-    password: '',
+    password: 'Rooster1',
     database: "employee_db",
 });
 const init = async () => {
@@ -54,8 +54,8 @@ const getEmployee = async () => {
             'View Department List',
             'Add Roles',
             'View all Roles',
-            'fire Employee',
-        ],
+            'fire Employee'
+        ]
 
 
     })
@@ -215,10 +215,10 @@ deleteEmployee = () => {
         type: "input",
         message: "select employee that you would like to fire by entering in there id?",
     }])
-        .then(function(answerDele)  {
-        connection.query(`DELETE FROM employee WHERE id = "${answerDele.id}"`)
-        viewEmployee()
-    })
+        .then(function (answerDele) {
+            connection.query(`DELETE FROM employee WHERE id ="${answerDele.id}"`)
+            viewEmployee()
+        })
 };
 
 init()

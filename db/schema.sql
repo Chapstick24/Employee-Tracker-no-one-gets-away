@@ -17,7 +17,7 @@ SELECT * FROM employee_db.employee;
 
 
 CREATE TABLE department(
-id INT(11) PRIMARY KEY,
+id INT(11),
 name VARCHAR(30),
 PRIMARY KEY (id)
 );

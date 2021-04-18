@@ -1,6 +1,8 @@
 # Employee-Tracker-no-one-gets-away
 
-[GithubRepo] https://github.com/Chapstick24/Employee-Tracker-no-one-gets-away
+# Links
+* [GithubRepo](https://github.com/Chapstick24/Employee-Tracker-no-one-gets-away)
+* [Link to how this app works]()
 
 ## Checklist
 
@@ -47,4 +49,5 @@
 
 
   # Screen Shots
-  ![image] Assets/Screen Shot 2021-04-17 at 7.56.50 PM.png
+  ![image](images/ScreenShot1.png)
+  ![image](images/screenShot2.png)
